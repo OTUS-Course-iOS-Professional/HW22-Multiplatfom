@@ -9,10 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            scene
-            hud
-        }.edgesIgnoringSafeArea(.all)
+        NavigationView {
+            TabView {
+                LeaderboardScreen()
+                    .tabItem { Text("Leaderboard") }
+                SettingsScreen()
+                    .tabItem { Text("Settings") }
+                PlayScreen()
+                    .tabItem { Text("Play") }
+            }
+        }
     }
     
     private var scene: some View {
